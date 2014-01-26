@@ -9,10 +9,14 @@ var user = require('./routes/user');
 var http = require('http');
 var path = require('path');
 
+
+
 // MongoDB hookup
 var mongo = require('mongodb');
 var monk = require('monk');
+
 var db = monk('mongodb://lumi:Fibonacci1234@dharma.mongohq.com:10073/gidimongo');
+
 
 var app = express();
 
@@ -35,13 +39,26 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
+//Get Requests
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/helloworld', routes.helloworld);
+app.get('/insertsong', routes.insertsong(db));
 app.get('/userlist', routes.userlist(db));
+app.get('/newuser', routes.newuser);
+app.get('/top10', routes.top10);
+
+app.get('/playlist', routes.playlistSearch);
+
+
+//Post Requests
+app.post('/adduser', routes.adduser(db));
+app.post('/getplaylist', routes.showplaylist(db));
+
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+
 
 

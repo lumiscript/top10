@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    h1= title
+    form#formAddUser(name="showplaylist",method="post",action="/getplaylist")
+        input#inputPlaylist(type="text", placeholder="playlist slug", name="slug")
+  
+        button#btnSubmit(type="submit") submit
