@@ -51,22 +51,28 @@ exports.showplaylist = function(db) {
         var playlistSlug = req.body.slug;
         //console.log(playlistSlug);
 
-        for(i=0; i < response.tracks.length; i++)
-        {
-            console.log('Trackname: %s \nArtist: %s \n \n', response.tracks[i].title, response.tracks[i].artist.name );
-
-        }
-        
-
-        var playerObject = function(myobject) {
+         var playerObject = function(myobject) {
             
+            console.log(myobject.tracks[3]);
+
 
         }
+      
+        for(i=0; i < response.tracks.length; i++)
+                {
+                   // console.log('Trackname: %s \nArtist: %s \n \n', response.tracks[i].title, response.tracks[i].artist.name );
 
+                }
+ 
+        
+        
         request('http://gplayer.herokuapp.com/api/playlist/'+playlistSlug, function (error, response, body) {
           if (!error && response.statusCode == 200) {
-            playerObject(body);
-             // Print the google web page.
+        
+            parsedBody = JSON.parse(body);
+            playerObject(parsedBody);
+        
+
           }
         });
 
