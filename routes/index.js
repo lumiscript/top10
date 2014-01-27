@@ -53,17 +53,14 @@ exports.showplaylist = function(db) {
 
          var playerObject = function(myobject) {
             
-            console.log(myobject.tracks[3]);
+            // console.log(myobject.tracks[3]);
 
-
-        }
-      
-        for(i=0; i < response.tracks.length; i++)
+              for(i=0; i < myobject.tracks.length; i++)
                 {
-                   // console.log('Trackname: %s \nArtist: %s \n \n', response.tracks[i].title, response.tracks[i].artist.name );
+                    console.log('Song ID: %s \nPlays: %s \nTrackname: %s \nArtist: %s \n \n', myobject.tracks[i].id, myobject.tracks[i].plays, myobject.tracks[i].title, myobject.tracks[i].artist.name );
 
-                }
- 
+                } 
+        }
         
         
         request('http://gplayer.herokuapp.com/api/playlist/'+playlistSlug, function (error, response, body) {
