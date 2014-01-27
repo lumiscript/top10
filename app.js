@@ -47,7 +47,7 @@ app.get('/userlist', routes.userlist(db));
 app.get('/newuser', routes.newuser);
 app.get('/top10', routes.top10);
 
-app.get('/playlist', routes.playlistSearch);
+app.get('/playlist/:slug', routes.playlistSearch);
 
 
 //Post Requests
