@@ -12,12 +12,10 @@ block content
     ul
     
     for track in mydata
-        p #{track.title}, #{track.artist.name}
-
-   
-
-    // iterate datas
-    each data in mydata
-        li= data
+        div.songobject
+            span.title #{track.title}
+            span.artist #{track.artist.name} 
+            span.url #{track.url} 
+            span.thumb #{track.thumbnail}
 
 
