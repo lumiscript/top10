@@ -49,7 +49,7 @@ exports.playlistSearch = function(req, res){
                     console.log('Song ID: %s \nPlays: %s \nTrackname: %s \nArtist: %s \n \n', myobject.tracks[i].id, myobject.tracks[i].plays, myobject.tracks[i].title, myobject.tracks[i].artist.name );
                     
                     // res.redirect("/");
-                    res.render('playlist', { mydata: myobject });
+                    res.render('playlist', { mydata: myobject.tracks });
 
                 } 
         }
@@ -79,10 +79,6 @@ exports.showplaylist = function(req, res, db) {
 
                 } 
         }
-
-
-
-
         
         request('http://gplayer.herokuapp.com/api/playlist/'+playlistSlug, function (error, response, body) {
           if (!error && response.statusCode == 200) {
@@ -93,9 +89,6 @@ exports.showplaylist = function(req, res, db) {
           }
         });
 
-             
-//save it to file
-      //  request('http://gpayer.herokuapp.com/api/playlist/'+playlistSlug).pipe(fs.createWriteStream("response.json"));
 
     };
 };

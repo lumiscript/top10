@@ -10,6 +10,12 @@ block content
         button#btnSubmit(type="submit") submit
 
     ul
+    
+    for track in mydata
+        p #{track.title}, #{track.artist.name}
+
+   
+
     // iterate datas
     each data in mydata
         li= data
