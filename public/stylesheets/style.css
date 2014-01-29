@@ -6,3 +6,26 @@ body {
 a {
   color: #00B7FF;
 }
+
+.songobject {
+	float: left;
+	margin-right: 30px;
+	margin-bottom: 30px;
+	max-width: 150px;
+
+}
+
+.songobject #title {
+	font-weight: bold;
+	display: block;
+}
+
+.songobject #artist {
+	font-weight: bold;
+	display: block;
+}
+
+.songobject img {
+	width: 150px;
+	height: 150px;
+}

@@ -13,9 +13,9 @@ block content
     
     for track in mydata
         div.songobject
+            img(src= track.thumbnail)
             span.title #{track.title}
             span.artist #{track.artist.name} 
             span.url #{track.url} 
-            span.thumb #{track.thumbnail}
-
+           
 
